@@ -1,15 +1,21 @@
-const Pastries = () => {
+import PropTypes from "prop-types";
 
-return (
-    <div>
-    <h3>Pastires</h3>
-    <p>crossaint</p>
-    <p>Bagels</p>
-    <p>Muffins</p>
-    </div>
-)
+const pastries = ({Items}) => {
+    return (
+        <div>
+            <h3>Pastries</h3>
+            {Items.map((Item, index) => (<p key={index}>{Item}</p>))}
+        </div>
+
+    );
+};
+
+pastries.defaultProps = {
+    Items: ["Croissants", "Bagels", "Muffins"]
+};
+
+pastries.propTypes = {
+    Items: PropTypes.array
 }
 
-
-
-export default Pastries
+export default pastries;
